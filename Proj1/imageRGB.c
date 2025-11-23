@@ -285,7 +285,6 @@ Image ImageCopy(const Image img) {
   assert(img != NULL);
 
   // TO BE COMPLETED
-  // ...
   //Create a Image with the same size
   Image otherImg = ImageCreate(img->width, img->height);
   if(otherImg == NULL){ // It there was no space for the new image
@@ -627,9 +626,24 @@ Image ImageRotate90CW(const Image img) {
   assert(img != NULL);
 
   // TO BE COMPLETED
-  // ...
+  //
+  
+  Image otherImg = ImageCreate(img->height, img->width);
 
-  return NULL;
+  for(uint32 i = 0; i<img->height; i++){
+    for(uint32 j = 0; j<img->width; j++){
+      //Original
+      uint16 index = img->image[i][j];
+      rgb_t color = img->LUT[index];
+
+      //Rotated
+      uint16 otherIndex = otherImg->image[j][img->width-i-1];//???? Se funcionara?
+      otherImg->LUT[otherIndex] = color;
+    }
+  }
+  
+
+  return (otherImg != NULL)? otherImg : NULL;
 }
 
 /// Rotate 180 degrees clockwise (CW).
@@ -643,8 +657,26 @@ Image ImageRotate180CW(const Image img) {
 
   // TO BE COMPLETED
   // ...
+    //Create a image with the same size
+  Image otherImg = ImageCreate(img->width, img->height);
 
-  return NULL;
+  //For each pixel at \((x,y)\), its new position will be \((width-1-x,height-1-y)\)
+
+  for (uint32 i = 0; i<img->height; i++){ //Loop through all rows
+    for(uint32 j=0; j<img->width; j++){ //Loop through all columns
+      //
+      uint16 index = img->image[i][j];
+      //Colors of the pixel at that position
+      rgb_t color = img->LUT[index];
+      //Get the rotated image coordinates 
+      uint16 otherIndex = otherImg->image[img->width-1-i][img->height-1-j];
+      //Define that pixel RGB colors the same as the original
+      otherImg->LUT[otherIndex] = color;
+
+    }
+  }
+
+  return (otherImg != NULL)? otherImg : NULL;
 }
 
 /// Check whether pixel coords (u, v) are inside img.
