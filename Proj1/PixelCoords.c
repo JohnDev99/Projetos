@@ -8,7 +8,7 @@
 ///
 /// The AED Team <jmadeira@ua.pt, jmr@ua.pt, ...>
 /// 2025
-
+ 
 #include "PixelCoords.h"
 
 #include <inttypes.h>

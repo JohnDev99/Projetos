@@ -15,7 +15,7 @@
 #include <inttypes.h>
 #include <stdlib.h>
 
-#include "PixelCoords.h"
+#include "PixelCoords.h" 
 
 struct _PixelCoordsStack {
   uint32_t max_size;  // maximum stack size

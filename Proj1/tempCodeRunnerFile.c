@@ -1,0 +1,1 @@
+  Image copy_image = ImageCopy(image_chess_1);
