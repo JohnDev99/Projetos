@@ -11,12 +11,12 @@
 /// 2025
 
 // Student authors (fill in below):
-// NMec:124537
-// Name:JOAO MARCELO LARANJEIRA ANUNCIAÇAO
+// NMec:121169
+// Name:Bohdan Popov
 // NMec:
 // Name:
 //
-// Date:#De termino do projeto
+// Date:
 //
 
 #include "imageRGB.h"
@@ -94,6 +94,8 @@ void ImageInit(void) {  ///
   InstrCalibrate();
   InstrName[0] = "pixmem";  // InstrCount[0] will count pixel array acesses
   // Name other counters here...
+  InstrName[1] = "rowalloc";
+  InstrName[2] = "LUTops";
 }
 
 // Macros to simplify accessing instrumentation counters:
@@ -284,47 +286,29 @@ void ImageDestroy(Image* imgp) {
 Image ImageCopy(const Image img) {
   assert(img != NULL);
 
-    // TO BE COMPLETED
-    //Create a Image with the same size
-    /*Image otherImg = ImageCreate(img->width, img->height);
-    if(otherImg == NULL){ // It there was no space for the new image
-    ImageDestroy(otherImg); //Destroy the Image, empty the space
-    return NULL; //Fail
+  // TO BE COMPLETED
+  Image copyImg = ImageCreate(img->width, img->height); //creating the copy image
 
-      for(uint32 i = 0; i<img->height;i++){
-      for(uint32 j = 0; i<img->width; j++){
-      //Get the current pointer
-      uint16 index = img->image[i][j];
-      //Get the color stored at that position
-      rgb_t color = img->LUT[index];
-      //Copy the values of (R,G,B) to the new image
-      otherImg->LUT[index] = color;
+  if(copyImg != NULL){
+    copyImg->num_colors = img->num_colors; // copy of the colors
+
+    for(uint16 i = 0; i<img->num_colors; i++){
+      copyImg->LUT[i] = img->LUT[i];  //copy of LUT
+      InstrCount[2]++;  //count of instructions
+    }
+
+    for(uint32 i = 0; i < img->height; i++){
+      for(uint32 j = 0; j<img->width; j++){
+        copyImg->image[i][j] = img->image[i][j];    //copy of pixels
+
+        InstrCount[2]++;    //copy LUT
+        InstrCount[0] += 2; // pixel array accesses
       }
-
     }
+    return copyImg;
+  }
 
-    return otherImg;
-    */
-    
-    //Allocate space for the LUT
-    Image otherImg = AllocateImageHeader(img->width, img->height);
-
-    // Get the number of RGB pixel of the original image
-    otherImg->num_colors = img->num_colors;
-    for (uint16 i = 0; i < img->num_colors; i++) {
-        otherImg->LUT[i] = img->LUT[i]; //Copy the original LUT
-    }
-
-    // Copy image rows
-    for (uint32 i = 0; i < img->height; i++) {
-      //Allocate space for the one image row
-        otherImg->image[i] = AllocateRowArray(img->width);
-        for (uint32 j = 0; j < img->width; j++) {
-            otherImg->image[i][j] = img->image[i][j]; //Copy the pixel
-        }
-    }
-
-    return otherImg;
+  return NULL;
 }
 
 /// Printing on the console
@@ -593,36 +577,23 @@ int ImageIsEqual(const Image img1, const Image img2) {
   assert(img1 != NULL);
   assert(img2 != NULL);
 
-  //Counter
-  int counter = 0;
-  FILE *file = fopen("ImageIsEqual_Analysis.txt","a");
-  if(file==NULL){
-    return -1;
-  }
-  //If the images have differents sizes, finish execution
-  if (img1->width != img2->width || img1->height != img2->height){
-        return -1;
-  }
+  // TO BE COMPLETED
+  if(img1->height !=img2->height || img1->width!=img2->width) // check dims
+    return 0;
 
-  //Nested for loops, to go through the image (matrix)
-  for (uint32 i = 0; i < img1->height; i++) {
-      for (uint32 j = 0; j < img1->width; j++) {
-          counter++;
-          //Get each image corresponding position
-          uint16 l1 = img1->image[i][j];
-          uint16 l2 = img2->image[i][j];
+  for(uint32 i = 0; i<img1->height; i++){
+    for(uint32 j = 0; j<img1->width; j++){
+      uint16 indx1 = img1->image[i][j];
+      uint16 indx2 = img2->image[i][j];
 
-          //Copy the RGB values
-          rgb_t c1 = img1->LUT[l1];
-          rgb_t c2 = img2->LUT[l2];
+      rgb_t c1 = img1->LUT[indx1];
+      rgb_t c2 = img2->LUT[indx2];
+      if(c1 != c2)    // check LUT colors
+        return 0;
 
-          if (c1 != c2) return -1; //Different RGB pixel values means different images
-      }
     }
-    fprintf(file,"ImageIsEqual :- Image1:%ix%i\t Image2:%ix%i\t NumColors1:%i\t NumColors2:%i\t Counter:%i\n", 
-    img1->height,img1->width,img2->height,img2->width,img1->num_colors,img2->num_colors,counter);
-    fclose(file);
-    return 0; //Images are equal
+  }
+  return 1;
 }
 
 int ImageIsDifferent(const Image img1, const Image img2) {
@@ -650,47 +621,28 @@ Image ImageRotate90CW(const Image img) {
   assert(img != NULL);
 
   // TO BE COMPLETED
-  /*
+  Image rotImg = ImageCreate(img->height, img->width);  //creating rotated img(w= old h, h = old w)
+  if(!rotImg) return NULL;
+
+  int colors = img->num_colors;
+  uint32 h = img->height;
+  uint32 w = img->width;
   
-  Image otherImg = ImageCreate(img->height, img->width);
+  rotImg->num_colors = colors;
+  
+  for(uint16 i = 0; i<colors; i++){
+    rotImg->LUT[i]=img->LUT[i];
+    InstrCount[2]++;
+  }
 
-  for(uint32 i = 0; i<img->height; i++){
-    for(uint32 j = 0; j<img->width; j++){
-      //Original
-      uint16 index = img->image[i][j];
-      rgb_t color = img->LUT[index];
-
-      //Rotated
-      uint16 otherIndex = otherImg->image[j][img->width-i-1];//???? Se funcionara?
-      otherImg->LUT[otherIndex] = color;
+  for(uint32 i = 0; i< h; i++){
+    for(uint32 j =0 ; j< w; j++){
+      rotImg->image[j][h -1-i] = img->image[i][j];
+      InstrCount[2]++; //LUT ops
+      InstrCount[0]+=2;//pixel array access
     }
   }
-  
-
-  return (otherImg != NULL)? otherImg : NULL;*/
-
-  //Get image sizes
-  uint32 w = img->width;
-  uint32 h = img->height;
-
-  Image otherImg = ImageCreate(h, w); //Switch height and width in a 90º rotation
-  
-
-  // Copy LUT
-  otherImg->num_colors = img->num_colors;
-  for (uint16 i = 0; i < img->num_colors; i++){
-      otherImg->LUT[i] = img->LUT[i];
-  }
-
-  // Map the correspondig pixel from the original image to the rotated one
-  for (uint32 j = 0; j < h; j++) {
-      for (uint32 k = 0; k < w; k++) {
-        //Rows are inverted with columns, fill from right to left
-          otherImg->image[k][h-j-1] = img->image[j][k];
-      }
-  }
-
-  return otherImg;
+  return rotImg;
 }
 
 /// Rotate 180 degrees clockwise (CW).
@@ -703,47 +655,13 @@ Image ImageRotate180CW(const Image img) {
   assert(img != NULL);
 
   // TO BE COMPLETED
-  /* ...
-    //Create a image with the same size
-  Image otherImg = ImageCreate(img->width, img->height);
+  // 2 times imageRotate90CW
+  Image tempImg = ImageRotate90CW(img);
 
-  //For each pixel at \((x,y)\), its new position will be \((width-1-x,height-1-y)\)
-
-  for (uint32 i = 0; i<img->height; i++){ //Loop through all rows
-    for(uint32 j=0; j<img->width; j++){ //Loop through all columns
-      //
-      uint16 index = img->image[i][j];
-      //Colors of the pixel at that position
-      rgb_t color = img->LUT[index];
-      //Get the rotated image coordinates 
-      uint16 otherIndex = otherImg->image[img->width-1-i][img->height-1-j];
-      //Define that pixel RGB colors the same as the original
-      otherImg->LUT[otherIndex] = color;
-
-    }
-  }
-
-  return (otherImg != NULL)? otherImg : NULL;*/
-  uint32 w = img->width;
-  uint32 h = img->height;
-
-  //Image rotated 180º have the same dimensions
-  Image otherImg = ImageCreate(w, h);
-
-  //Copy LUT
-  otherImg->num_colors = img->num_colors;
-  for (uint16 i = 0; i < img->num_colors; i++){
-      otherImg->LUT[i] = img->LUT[i];
-  }
-
-  //Map pixels
-  for (uint32 v = 0; v < h; v++) {
-      for (uint32 u = 0; u < w; u++) {
-          otherImg->image[h - 1 - v][w - 1 - u] = img->image[v][u];
-      }
-  }
-
-  return otherImg;
+  if(!tempImg) return NULL;
+  Image rotImg180 = ImageRotate90CW(tempImg);
+  ImageDestroy(&tempImg);
+  return rotImg180;
 }
 
 /// Check whether pixel coords (u, v) are inside img.
@@ -776,25 +694,33 @@ int ImageRegionFillingRecursive(Image img, int u, int v, uint16 label) {
   assert(ImageIsValidPixel(img, u, v));
   assert(label < FIXED_LUT_SIZE);
 
-  //Base Case (Stop Recursion)
-  //Is different color of the neighbours
-    if (img->image[v][u] != label){
-      return 1;
-    } 
+  // TO BE COMPLETED
+  
+  uint16 old_label = img->image[v][u]; // original color
+  
+  if(old_label == label) 
+    return 0;
 
-    img->image[v][u] = label;//
-    uint32 count = 1; //Counter
+  img->image[v][u] = label; // pixel with new label
+  InstrCount[0]++;     //count pixel write
+  int count = 1;  //counting unit
 
-          //   [v-1,u]
-      // [v,u-1][u,v][v,u+1]
-          //   [v+1,u]
-    count += ImageRegionFillingRecursive(img, u+1, v, label);//Next column same row
-    count += ImageRegionFillingRecursive(img, u-1, v, label);//Previous column same row
-    count += ImageRegionFillingRecursive(img, u, v+1, label);//Same column next row
-    count += ImageRegionFillingRecursive(img, u, v-1, label);//Same column previous row
+  // fill recursively 
+  if(ImageIsValidPixel(img, u + 1, v)){
+    count+= ImageRegionFillingRecursive(img, u+1, v, label);
+  }
+  if(ImageIsValidPixel(img, u -1, v)){
+    count+= ImageRegionFillingRecursive(img, u-1, v, label);
+  }
+  if(ImageIsValidPixel(img, u, v+1)){
+    count+= ImageRegionFillingRecursive(img, u, v+1, label);
+  }
+  if(ImageIsValidPixel(img, u, v -1)){
+    
+    count+= ImageRegionFillingRecursive(img, u, v -1, label);
+  }
 
-    return count;
-
+  return count;     // total filled pixels
 }
 
 /// Region growing using a STACK of pixel coordinates to
@@ -805,38 +731,44 @@ int ImageRegionFillingWithSTACK(Image img, int u, int v, uint16 label) {
   assert(label < FIXED_LUT_SIZE);
 
   // TO BE COMPLETED
-  /*
+  uint16 old_label = img->image[v][u]; // original color
   
+  if(old_label == label) 
+    return 0;
 
-  uint16 target = img->image[v][u];
-  if (target == label) return 0;
+  int count = 0;  //counting unit
 
-  Stack *s = PixelCoordsStackCreate();
-  PixelCoordsStackPush(s, u, v);
+  Stack* stack = StackCreate(img->width * img->height); // creating stack
+  PixelCoords p = {u, v}; // creating pixel coordinates
+  StackPush(stack, p);
 
-  int count = 0;
+  while(!StackIsEmpty(stack)){
+    PixelCoords cur = StackPop(stack);
+    int x = cur.u;
+    int y = cur.v;
 
-  while (!PixelCoordsStackIsEmpty(s)) {
-      PixelCoords *p = PixelCoordsStackPop(s);
-      int x = p->u;
-      int y = p->v;
+    if(img->image[y][x] != old_label)
+      continue;
 
-      if (!ImageIsValidPixel(img, x, y)) continue;
-      if (img->image[y][x] != target) continue;
+    img->image[y][x] = label;
+    InstrCount[0]++;
+    count++;
 
-      img->image[y][x] = label;
-      count++;
-
-      PixelCoordsStackPush(s, x+1, y);
-      PixelCoordsStackPush(s, x-1, y);
-      PixelCoordsStackPush(s, x, y+1);
-      PixelCoordsStackPush(s, x, y-1);
+    PixelCoords sosedi[4] = {
+      {x+1, y}, {x- 1, y}, {x, y +1}, {x,y-1}
+    };
+    for(int i=0; i<4; i++){
+      int sx = sosedi[i].u;
+      int sy = sosedi[i].v;
+      if(!ImageIsValidPixel(img, sx, sy))
+        continue;
+      if(img->image[sx][sy] != old_label)
+        continue;
+      StackPush(stack, sosedi[i]);
+    }
   }
-
-  PixelCoordsStackDestroy(&s);
-  return count;*/
-  return 0;
-  
+  StackDestroy(&stack);
+  return count;
 }
 
 /// Region growing using a QUEUE of pixel coordinates to
@@ -847,36 +779,46 @@ int ImageRegionFillingWithQUEUE(Image img, int u, int v, uint16 label) {
   assert(label < FIXED_LUT_SIZE);
 
   // TO BE COMPLETED
-  /*
-  uint16 target = img->image[v][u];
-  if (target == label) return 0;
+  uint16 old_label = img->image[v][u]; // original color
+  
+  if(old_label == label) 
+    return 0;
 
-  PixelCoords *q = PixelCoordsQueueCreate();
-  PixelCoordsQueueEnqueue(q, u, v);
+  int count = 0;  //counting unit
 
-  int count = 0;
+  Queue* queue = QueueCreate(img->height * img->width);
+  PixelCoords p = {u, v};
+  QueueEnqueue(queue, p);
 
-  while (!PixelCoordsQueueIsEmpty(q)) {
-      PixelCoords *p = PixelCoordsQueueDequeue(q);
-      int x = p->u;
-      int y = p->v;
+  while(!QueueIsEmpty(queue)){
+    PixelCoords cur = QueueDequeue(queue);
+    int x = cur.u;
+    int y = cur.v;
 
-      if (!ImageIsValidPixel(img, x, y)) continue;
-      if (img->image[y][x] != target) continue;
+    if(img->image[y][x]!=old_label)
+      continue;
 
-      img->image[y][x] = label;
-      count++;
+    img->image[y][x] = label;
+    InstrCount[0]++;
+    count++;
 
-      PixelCoordsQueueEnqueue(q, x+1, y);
-      PixelCoordsQueueEnqueue(q, x-1, y);
-      PixelCoordsQueueEnqueue(q, x, y+1);
-      PixelCoordsQueueEnqueue(q, x, y-1);
+    PixelCoords sosedi[4] = {
+      {x+1, y}, {x- 1, y}, {x, y +1}, {x,y-1}
+    };
+    for(int i=0; i<4; i++){
+      int sx = sosedi[i].u;
+      int sy = sosedi[i].v;
+
+      if(!ImageIsValidPixel(img, sx, sy))
+        continue;
+      if(img->image[sx][sy] != old_label)
+        continue;
+      QueueEnqueue(queue, sosedi[i]);
     }
+  }
+  QueueDestroy(&queue);
 
-    PixelCoordsQueueDestroy(&q);
-    return count;*/
-
-  return 0;
+  return count;
 }
 
 /// Image Segmentation
@@ -894,28 +836,24 @@ int ImageSegmentation(Image img, FillingFunction fillFunct) {
   assert(fillFunct != NULL);
 
   // TO BE COMPLETED
-  
-  rgb_t color = 0x000000;  // starting White
+  int region_count = 0;
+  rgb_t last_color = 0;
+  for (uint32 i = 0; i < img->height; i++) {
+    for (uint32 j = 0; j < img->width; j++) {
+      if(img->image[i][j] == 0){
+        rgb_t new_color = GenerateNextColor(last_color);
+        last_color = new_color;
 
-  int regions = 0;
-
-  for (uint32 v = 0; v < img->height; v++) { //Foreach row
-      for (uint32 u = 0; u < img->width; u++) { //Foreach column
-
-        if (img->image[v][u] == 0) {  // WHITE region
-            //Get a new coloe
-            rgb_t newColor = GenerateNextColor(color);
-            color = newColor;
-
-            //Append new color to the LUT
-            uint16 newLabel = LUTAllocColor(img, newColor);
-
-            fillFunct(img, u, v, newLabel);
-            regions++;
+        uint16 new_label = img->num_colors;
+        if(new_label<FIXED_LUT_SIZE){
+          img->LUT[new_label] = new_color;
+          img->num_colors++;
         }
+
+        fillFunct(img, j, i, new_label);
+        region_count++;
       }
+    }
   }
-
-  return regions;
-
+  return region_count;
 }

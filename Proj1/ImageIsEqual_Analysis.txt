@@ -1,0 +1,210 @@
+ImageIsEqual :- Image1:10x10	 Image2:10x10	 Counter:100
+ImageIsEqual :- Image1:20x20	 Image2:20x20	 Counter:400
+ImageIsEqual :- Image1:30x30	 Image2:30x30	 Counter:900
+ImageIsEqual :- Image1:40x40	 Image2:40x40	 Counter:1600
+ImageIsEqual :- Image1:50x50	 Image2:50x50	 Counter:2500
+ImageIsEqual :- Image1:60x60	 Image2:60x60	 Counter:3600
+ImageIsEqual :- Image1:70x70	 Image2:70x70	 Counter:4900
+ImageIsEqual :- Image1:80x80	 Image2:80x80	 Counter:6400
+ImageIsEqual :- Image1:90x90	 Image2:90x90	 Counter:8100
+ImageIsEqual :- Image1:100x100	 Image2:100x100	 Counter:10000
+ImageIsEqual :- Image1:110x110	 Image2:110x110	 Counter:12100
+ImageIsEqual :- Image1:120x120	 Image2:120x120	 Counter:14400
+ImageIsEqual :- Image1:130x130	 Image2:130x130	 Counter:16900
+ImageIsEqual :- Image1:140x140	 Image2:140x140	 Counter:19600
+ImageIsEqual :- Image1:150x150	 Image2:150x150	 Counter:22500
+ImageIsEqual :- Image1:160x160	 Image2:160x160	 Counter:25600
+ImageIsEqual :- Image1:170x170	 Image2:170x170	 Counter:28900
+ImageIsEqual :- Image1:180x180	 Image2:180x180	 Counter:32400
+ImageIsEqual :- Image1:190x190	 Image2:190x190	 Counter:36100
+ImageIsEqual :- Image1:200x200	 Image2:200x200	 Counter:40000
+ImageIsEqual :- Image1:210x210	 Image2:210x210	 Counter:44100
+ImageIsEqual :- Image1:220x220	 Image2:220x220	 Counter:48400
+ImageIsEqual :- Image1:230x230	 Image2:230x230	 Counter:52900
+ImageIsEqual :- Image1:240x240	 Image2:240x240	 Counter:57600
+ImageIsEqual :- Image1:250x250	 Image2:250x250	 Counter:62500
+ImageIsEqual :- Image1:260x260	 Image2:260x260	 Counter:67600
+ImageIsEqual :- Image1:270x270	 Image2:270x270	 Counter:72900
+ImageIsEqual :- Image1:280x280	 Image2:280x280	 Counter:78400
+ImageIsEqual :- Image1:290x290	 Image2:290x290	 Counter:84100
+ImageIsEqual :- Image1:300x300	 Image2:300x300	 Counter:90000
+ImageIsEqual :- Image1:10x10	 Image2:10x10	 Counter:100
+ImageIsEqual :- Image1:20x20	 Image2:20x20	 Counter:400
+ImageIsEqual :- Image1:30x30	 Image2:30x30	 Counter:900
+ImageIsEqual :- Image1:40x40	 Image2:40x40	 Counter:1600
+ImageIsEqual :- Image1:50x50	 Image2:50x50	 Counter:2500
+ImageIsEqual :- Image1:60x60	 Image2:60x60	 Counter:3600
+ImageIsEqual :- Image1:70x70	 Image2:70x70	 Counter:4900
+ImageIsEqual :- Image1:80x80	 Image2:80x80	 Counter:6400
+ImageIsEqual :- Image1:90x90	 Image2:90x90	 Counter:8100
+ImageIsEqual :- Image1:100x100	 Image2:100x100	 Counter:10000
+ImageIsEqual :- Image1:110x110	 Image2:110x110	 Counter:12100
+ImageIsEqual :- Image1:120x120	 Image2:120x120	 Counter:14400
+ImageIsEqual :- Image1:130x130	 Image2:130x130	 Counter:16900
+ImageIsEqual :- Image1:140x140	 Image2:140x140	 Counter:19600
+ImageIsEqual :- Image1:150x150	 Image2:150x150	 Counter:22500
+ImageIsEqual :- Image1:160x160	 Image2:160x160	 Counter:25600
+ImageIsEqual :- Image1:170x170	 Image2:170x170	 Counter:28900
+ImageIsEqual :- Image1:180x180	 Image2:180x180	 Counter:32400
+ImageIsEqual :- Image1:190x190	 Image2:190x190	 Counter:36100
+ImageIsEqual :- Image1:200x200	 Image2:200x200	 Counter:40000
+ImageIsEqual :- Image1:210x210	 Image2:210x210	 Counter:44100
+ImageIsEqual :- Image1:220x220	 Image2:220x220	 Counter:48400
+ImageIsEqual :- Image1:230x230	 Image2:230x230	 Counter:52900
+ImageIsEqual :- Image1:240x240	 Image2:240x240	 Counter:57600
+ImageIsEqual :- Image1:250x250	 Image2:250x250	 Counter:62500
+ImageIsEqual :- Image1:260x260	 Image2:260x260	 Counter:67600
+ImageIsEqual :- Image1:270x270	 Image2:270x270	 Counter:72900
+ImageIsEqual :- Image1:280x280	 Image2:280x280	 Counter:78400
+ImageIsEqual :- Image1:290x290	 Image2:290x290	 Counter:84100
+ImageIsEqual :- Image1:300x300	 Image2:300x300	 Counter:90000
+ImageIsEqual :- Image1:10x10	 Image2:10x10	 Counter:100
+ImageIsEqual :- Image1:20x20	 Image2:20x20	 Counter:400
+ImageIsEqual :- Image1:30x30	 Image2:30x30	 Counter:900
+ImageIsEqual :- Image1:40x40	 Image2:40x40	 Counter:1600
+ImageIsEqual :- Image1:50x50	 Image2:50x50	 Counter:2500
+ImageIsEqual :- Image1:60x60	 Image2:60x60	 Counter:3600
+ImageIsEqual :- Image1:70x70	 Image2:70x70	 Counter:4900
+ImageIsEqual :- Image1:80x80	 Image2:80x80	 Counter:6400
+ImageIsEqual :- Image1:90x90	 Image2:90x90	 Counter:8100
+ImageIsEqual :- Image1:100x100	 Image2:100x100	 Counter:10000
+ImageIsEqual :- Image1:110x110	 Image2:110x110	 Counter:12100
+ImageIsEqual :- Image1:120x120	 Image2:120x120	 Counter:14400
+ImageIsEqual :- Image1:130x130	 Image2:130x130	 Counter:16900
+ImageIsEqual :- Image1:140x140	 Image2:140x140	 Counter:19600
+ImageIsEqual :- Image1:150x150	 Image2:150x150	 Counter:22500
+ImageIsEqual :- Image1:160x160	 Image2:160x160	 Counter:25600
+ImageIsEqual :- Image1:170x170	 Image2:170x170	 Counter:28900
+ImageIsEqual :- Image1:180x180	 Image2:180x180	 Counter:32400
+ImageIsEqual :- Image1:190x190	 Image2:190x190	 Counter:36100
+ImageIsEqual :- Image1:200x200	 Image2:200x200	 Counter:40000
+ImageIsEqual :- Image1:210x210	 Image2:210x210	 Counter:44100
+ImageIsEqual :- Image1:220x220	 Image2:220x220	 Counter:48400
+ImageIsEqual :- Image1:230x230	 Image2:230x230	 Counter:52900
+ImageIsEqual :- Image1:240x240	 Image2:240x240	 Counter:57600
+ImageIsEqual :- Image1:250x250	 Image2:250x250	 Counter:62500
+ImageIsEqual :- Image1:260x260	 Image2:260x260	 Counter:67600
+ImageIsEqual :- Image1:270x270	 Image2:270x270	 Counter:72900
+ImageIsEqual :- Image1:280x280	 Image2:280x280	 Counter:78400
+ImageIsEqual :- Image1:290x290	 Image2:290x290	 Counter:84100
+ImageIsEqual :- Image1:300x300	 Image2:300x300	 Counter:90000
+ImageIsEqual :- Image1:10x10	 Image2:10x10	 Counter:100
+ImageIsEqual :- Image1:20x20	 Image2:20x20	 Counter:400
+ImageIsEqual :- Image1:30x30	 Image2:30x30	 Counter:900
+ImageIsEqual :- Image1:40x40	 Image2:40x40	 Counter:1600
+ImageIsEqual :- Image1:50x50	 Image2:50x50	 Counter:2500
+ImageIsEqual :- Image1:60x60	 Image2:60x60	 Counter:3600
+ImageIsEqual :- Image1:70x70	 Image2:70x70	 Counter:4900
+ImageIsEqual :- Image1:80x80	 Image2:80x80	 Counter:6400
+ImageIsEqual :- Image1:90x90	 Image2:90x90	 Counter:8100
+ImageIsEqual :- Image1:100x100	 Image2:100x100	 Counter:10000
+ImageIsEqual :- Image1:110x110	 Image2:110x110	 Counter:12100
+ImageIsEqual :- Image1:120x120	 Image2:120x120	 Counter:14400
+ImageIsEqual :- Image1:130x130	 Image2:130x130	 Counter:16900
+ImageIsEqual :- Image1:140x140	 Image2:140x140	 Counter:19600
+ImageIsEqual :- Image1:150x150	 Image2:150x150	 Counter:22500
+ImageIsEqual :- Image1:160x160	 Image2:160x160	 Counter:25600
+ImageIsEqual :- Image1:170x170	 Image2:170x170	 Counter:28900
+ImageIsEqual :- Image1:180x180	 Image2:180x180	 Counter:32400
+ImageIsEqual :- Image1:190x190	 Image2:190x190	 Counter:36100
+ImageIsEqual :- Image1:200x200	 Image2:200x200	 Counter:40000
+ImageIsEqual :- Image1:210x210	 Image2:210x210	 Counter:44100
+ImageIsEqual :- Image1:220x220	 Image2:220x220	 Counter:48400
+ImageIsEqual :- Image1:230x230	 Image2:230x230	 Counter:52900
+ImageIsEqual :- Image1:240x240	 Image2:240x240	 Counter:57600
+ImageIsEqual :- Image1:250x250	 Image2:250x250	 Counter:62500
+ImageIsEqual :- Image1:260x260	 Image2:260x260	 Counter:67600
+ImageIsEqual :- Image1:270x270	 Image2:270x270	 Counter:72900
+ImageIsEqual :- Image1:280x280	 Image2:280x280	 Counter:78400
+ImageIsEqual :- Image1:290x290	 Image2:290x290	 Counter:84100
+ImageIsEqual :- Image1:300x300	 Image2:300x300	 Counter:90000
+ImageIsEqual :- Image1:10x10	 Image2:10x10	 NumColors1:2	 NumColors2:2	 Counter:100
+ImageIsEqual :- Image1:20x20	 Image2:20x20	 NumColors1:2	 NumColors2:2	 Counter:400
+ImageIsEqual :- Image1:30x30	 Image2:30x30	 NumColors1:2	 NumColors2:2	 Counter:900
+ImageIsEqual :- Image1:40x40	 Image2:40x40	 NumColors1:2	 NumColors2:2	 Counter:1600
+ImageIsEqual :- Image1:50x50	 Image2:50x50	 NumColors1:2	 NumColors2:2	 Counter:2500
+ImageIsEqual :- Image1:60x60	 Image2:60x60	 NumColors1:2	 NumColors2:2	 Counter:3600
+ImageIsEqual :- Image1:70x70	 Image2:70x70	 NumColors1:2	 NumColors2:2	 Counter:4900
+ImageIsEqual :- Image1:80x80	 Image2:80x80	 NumColors1:2	 NumColors2:2	 Counter:6400
+ImageIsEqual :- Image1:90x90	 Image2:90x90	 NumColors1:2	 NumColors2:2	 Counter:8100
+ImageIsEqual :- Image1:100x100	 Image2:100x100	 NumColors1:2	 NumColors2:2	 Counter:10000
+ImageIsEqual :- Image1:110x110	 Image2:110x110	 NumColors1:2	 NumColors2:2	 Counter:12100
+ImageIsEqual :- Image1:120x120	 Image2:120x120	 NumColors1:2	 NumColors2:2	 Counter:14400
+ImageIsEqual :- Image1:130x130	 Image2:130x130	 NumColors1:2	 NumColors2:2	 Counter:16900
+ImageIsEqual :- Image1:140x140	 Image2:140x140	 NumColors1:2	 NumColors2:2	 Counter:19600
+ImageIsEqual :- Image1:150x150	 Image2:150x150	 NumColors1:2	 NumColors2:2	 Counter:22500
+ImageIsEqual :- Image1:160x160	 Image2:160x160	 NumColors1:2	 NumColors2:2	 Counter:25600
+ImageIsEqual :- Image1:170x170	 Image2:170x170	 NumColors1:2	 NumColors2:2	 Counter:28900
+ImageIsEqual :- Image1:180x180	 Image2:180x180	 NumColors1:2	 NumColors2:2	 Counter:32400
+ImageIsEqual :- Image1:190x190	 Image2:190x190	 NumColors1:2	 NumColors2:2	 Counter:36100
+ImageIsEqual :- Image1:200x200	 Image2:200x200	 NumColors1:2	 NumColors2:2	 Counter:40000
+ImageIsEqual :- Image1:210x210	 Image2:210x210	 NumColors1:2	 NumColors2:2	 Counter:44100
+ImageIsEqual :- Image1:220x220	 Image2:220x220	 NumColors1:2	 NumColors2:2	 Counter:48400
+ImageIsEqual :- Image1:230x230	 Image2:230x230	 NumColors1:2	 NumColors2:2	 Counter:52900
+ImageIsEqual :- Image1:240x240	 Image2:240x240	 NumColors1:2	 NumColors2:2	 Counter:57600
+ImageIsEqual :- Image1:250x250	 Image2:250x250	 NumColors1:2	 NumColors2:2	 Counter:62500
+ImageIsEqual :- Image1:260x260	 Image2:260x260	 NumColors1:2	 NumColors2:2	 Counter:67600
+ImageIsEqual :- Image1:270x270	 Image2:270x270	 NumColors1:2	 NumColors2:2	 Counter:72900
+ImageIsEqual :- Image1:280x280	 Image2:280x280	 NumColors1:2	 NumColors2:2	 Counter:78400
+ImageIsEqual :- Image1:290x290	 Image2:290x290	 NumColors1:2	 NumColors2:2	 Counter:84100
+ImageIsEqual :- Image1:300x300	 Image2:300x300	 NumColors1:2	 NumColors2:2	 Counter:90000
+ImageIsEqual :- Image1:10x10	 Image2:10x10	 NumColors1:1000	 NumColors2:1000	 Counter:100
+ImageIsEqual :- Image1:20x20	 Image2:20x20	 NumColors1:1000	 NumColors2:1000	 Counter:400
+ImageIsEqual :- Image1:30x30	 Image2:30x30	 NumColors1:1000	 NumColors2:1000	 Counter:900
+ImageIsEqual :- Image1:40x40	 Image2:40x40	 NumColors1:1000	 NumColors2:1000	 Counter:1600
+ImageIsEqual :- Image1:50x50	 Image2:50x50	 NumColors1:1000	 NumColors2:1000	 Counter:2500
+ImageIsEqual :- Image1:60x60	 Image2:60x60	 NumColors1:1000	 NumColors2:1000	 Counter:3600
+ImageIsEqual :- Image1:70x70	 Image2:70x70	 NumColors1:1000	 NumColors2:1000	 Counter:4900
+ImageIsEqual :- Image1:80x80	 Image2:80x80	 NumColors1:1000	 NumColors2:1000	 Counter:6400
+ImageIsEqual :- Image1:90x90	 Image2:90x90	 NumColors1:1000	 NumColors2:1000	 Counter:8100
+ImageIsEqual :- Image1:100x100	 Image2:100x100	 NumColors1:1000	 NumColors2:1000	 Counter:10000
+ImageIsEqual :- Image1:110x110	 Image2:110x110	 NumColors1:1000	 NumColors2:1000	 Counter:12100
+ImageIsEqual :- Image1:120x120	 Image2:120x120	 NumColors1:1000	 NumColors2:1000	 Counter:14400
+ImageIsEqual :- Image1:130x130	 Image2:130x130	 NumColors1:1000	 NumColors2:1000	 Counter:16900
+ImageIsEqual :- Image1:140x140	 Image2:140x140	 NumColors1:1000	 NumColors2:1000	 Counter:19600
+ImageIsEqual :- Image1:150x150	 Image2:150x150	 NumColors1:1000	 NumColors2:1000	 Counter:22500
+ImageIsEqual :- Image1:160x160	 Image2:160x160	 NumColors1:1000	 NumColors2:1000	 Counter:25600
+ImageIsEqual :- Image1:170x170	 Image2:170x170	 NumColors1:1000	 NumColors2:1000	 Counter:28900
+ImageIsEqual :- Image1:180x180	 Image2:180x180	 NumColors1:1000	 NumColors2:1000	 Counter:32400
+ImageIsEqual :- Image1:190x190	 Image2:190x190	 NumColors1:1000	 NumColors2:1000	 Counter:36100
+ImageIsEqual :- Image1:200x200	 Image2:200x200	 NumColors1:1000	 NumColors2:1000	 Counter:40000
+ImageIsEqual :- Image1:210x210	 Image2:210x210	 NumColors1:1000	 NumColors2:1000	 Counter:44100
+ImageIsEqual :- Image1:220x220	 Image2:220x220	 NumColors1:1000	 NumColors2:1000	 Counter:48400
+ImageIsEqual :- Image1:230x230	 Image2:230x230	 NumColors1:1000	 NumColors2:1000	 Counter:52900
+ImageIsEqual :- Image1:240x240	 Image2:240x240	 NumColors1:1000	 NumColors2:1000	 Counter:57600
+ImageIsEqual :- Image1:250x250	 Image2:250x250	 NumColors1:1000	 NumColors2:1000	 Counter:62500
+ImageIsEqual :- Image1:260x260	 Image2:260x260	 NumColors1:1000	 NumColors2:1000	 Counter:67600
+ImageIsEqual :- Image1:270x270	 Image2:270x270	 NumColors1:1000	 NumColors2:1000	 Counter:72900
+ImageIsEqual :- Image1:280x280	 Image2:280x280	 NumColors1:1000	 NumColors2:1000	 Counter:78400
+ImageIsEqual :- Image1:290x290	 Image2:290x290	 NumColors1:1000	 NumColors2:1000	 Counter:84100
+ImageIsEqual :- Image1:300x300	 Image2:300x300	 NumColors1:1000	 NumColors2:1000	 Counter:90000
+ImageIsEqual :- Image1:11x10	 Image2:11x10	 NumColors1:2	 NumColors2:2	 Counter:110
+ImageIsEqual :- Image1:21x20	 Image2:21x20	 NumColors1:2	 NumColors2:2	 Counter:420
+ImageIsEqual :- Image1:31x30	 Image2:31x30	 NumColors1:2	 NumColors2:2	 Counter:930
+ImageIsEqual :- Image1:41x40	 Image2:41x40	 NumColors1:2	 NumColors2:2	 Counter:1640
+ImageIsEqual :- Image1:51x50	 Image2:51x50	 NumColors1:2	 NumColors2:2	 Counter:2550
+ImageIsEqual :- Image1:61x60	 Image2:61x60	 NumColors1:2	 NumColors2:2	 Counter:3660
+ImageIsEqual :- Image1:71x70	 Image2:71x70	 NumColors1:2	 NumColors2:2	 Counter:4970
+ImageIsEqual :- Image1:81x80	 Image2:81x80	 NumColors1:2	 NumColors2:2	 Counter:6480
+ImageIsEqual :- Image1:91x90	 Image2:91x90	 NumColors1:2	 NumColors2:2	 Counter:8190
+ImageIsEqual :- Image1:101x100	 Image2:101x100	 NumColors1:2	 NumColors2:2	 Counter:10100
+ImageIsEqual :- Image1:111x110	 Image2:111x110	 NumColors1:2	 NumColors2:2	 Counter:12210
+ImageIsEqual :- Image1:121x120	 Image2:121x120	 NumColors1:2	 NumColors2:2	 Counter:14520
+ImageIsEqual :- Image1:131x130	 Image2:131x130	 NumColors1:2	 NumColors2:2	 Counter:17030
+ImageIsEqual :- Image1:141x140	 Image2:141x140	 NumColors1:2	 NumColors2:2	 Counter:19740
+ImageIsEqual :- Image1:151x150	 Image2:151x150	 NumColors1:2	 NumColors2:2	 Counter:22650
+ImageIsEqual :- Image1:161x160	 Image2:161x160	 NumColors1:2	 NumColors2:2	 Counter:25760
+ImageIsEqual :- Image1:171x170	 Image2:171x170	 NumColors1:2	 NumColors2:2	 Counter:29070
+ImageIsEqual :- Image1:181x180	 Image2:181x180	 NumColors1:2	 NumColors2:2	 Counter:32580
+ImageIsEqual :- Image1:191x190	 Image2:191x190	 NumColors1:2	 NumColors2:2	 Counter:36290
+ImageIsEqual :- Image1:201x200	 Image2:201x200	 NumColors1:2	 NumColors2:2	 Counter:40200
+ImageIsEqual :- Image1:211x210	 Image2:211x210	 NumColors1:2	 NumColors2:2	 Counter:44310
+ImageIsEqual :- Image1:221x220	 Image2:221x220	 NumColors1:2	 NumColors2:2	 Counter:48620
+ImageIsEqual :- Image1:231x230	 Image2:231x230	 NumColors1:2	 NumColors2:2	 Counter:53130
+ImageIsEqual :- Image1:241x240	 Image2:241x240	 NumColors1:2	 NumColors2:2	 Counter:57840
+ImageIsEqual :- Image1:251x250	 Image2:251x250	 NumColors1:2	 NumColors2:2	 Counter:62750
+ImageIsEqual :- Image1:261x260	 Image2:261x260	 NumColors1:2	 NumColors2:2	 Counter:67860
+ImageIsEqual :- Image1:271x270	 Image2:271x270	 NumColors1:2	 NumColors2:2	 Counter:73170
+ImageIsEqual :- Image1:281x280	 Image2:281x280	 NumColors1:2	 NumColors2:2	 Counter:78680
+ImageIsEqual :- Image1:291x290	 Image2:291x290	 NumColors1:2	 NumColors2:2	 Counter:84390
+ImageIsEqual :- Image1:301x300	 Image2:301x300	 NumColors1:2	 NumColors2:2	 Counter:90300

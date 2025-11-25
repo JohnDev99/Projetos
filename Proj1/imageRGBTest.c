@@ -32,6 +32,7 @@ int main(int argc, char* argv[]) {
   printf("1) ImageCreate\n");
   Image white_image = ImageCreate(100, 100);
   // ImageRAWPrint(white_image);
+  
 
   printf("2) ImageCreateChess(black)+ ImageSavePBM\n");
   Image image_chess_1 = ImageCreateChess(150, 120, 30, 0x000000);  // black
@@ -55,6 +56,7 @@ int main(int argc, char* argv[]) {
     ImageSavePBM(copy_image, "copy_image.pbm");
   }
 
+
   printf("6) ImageLoadPBM\n");
   Image image_1 = ImageLoadPBM("img/feep.pbm");
   ImageRAWPrint(image_1);
@@ -66,6 +68,21 @@ int main(int argc, char* argv[]) {
   printf("8) ImageCreatePalete\n");
   Image image_3 = ImageCreatePalete(4 * 32, 4 * 32, 4);
   ImageSavePPM(image_3, "palete.ppm");
+
+
+  //CODE FOR ALGORITHM ANALYSIS
+
+  // Create a set of diferent images, all with the same size
+  //Inside the ImageIsEqual is a pointer to a file in the directory
+  //that it will append the number of comparassions the nesteds for loops 
+  //will execute at wich pixel
+  /*for(uint32 i = 1; i<31; i++){
+    int val = 0;
+    Image imgTemp = ImageCreate(i*10, i*10);
+    val = ImageIsEqual(imgTemp,imgTemp);
+  }*/
+  
+
 
   ImageDestroy(&white_image);
   ImageDestroy(&black_image);
