@@ -78,11 +78,11 @@ int main(int argc, char* argv[]) {
   //will execute at wich pixel
   /*for(uint32 i = 1; i<31; i++){
     int val = 0;
-    Image imgTemp = ImageCreate(i*10, i*10);
-    val = ImageIsEqual(imgTemp,imgTemp);
+    Image imgTemp1 = ImageCreatePalete(i*10,i*10,4);
+    Image imgTemp2 = ImageCreatePalete(i*10,i*10,4);
+    val = ImageIsEqual(imgTemp1,imgTemp2);
   }*/
-  
-
+ 
 
   ImageDestroy(&white_image);
   ImageDestroy(&black_image);

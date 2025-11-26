@@ -595,9 +595,10 @@ int ImageIsEqual(const Image img1, const Image img2) {
 
   //Counter
   int counter = 0;
+  //Output to a file, alghorithm analysis
   FILE *file = fopen("ImageIsEqual_Analysis.txt","a");
   if(file==NULL){
-    return -1;
+    return -2;//File not found
   }
   //If the images have differents sizes, finish execution
   if (img1->width != img2->width || img1->height != img2->height){
@@ -619,9 +620,12 @@ int ImageIsEqual(const Image img1, const Image img2) {
           if (c1 != c2) return -1; //Different RGB pixel values means different images
       }
     }
+    //Print to file
     fprintf(file,"ImageIsEqual :- Image1:%ix%i\t Image2:%ix%i\t NumColors1:%i\t NumColors2:%i\t Counter:%i\n", 
     img1->height,img1->width,img2->height,img2->width,img1->num_colors,img2->num_colors,counter);
     fclose(file);
+
+
     return 0; //Images are equal
 }
 
@@ -692,7 +696,7 @@ Image ImageRotate90CW(const Image img) {
 
   return otherImg;
 }
-
+ 
 /// Rotate 180 degrees clockwise (CW).
 /// Returns a rotated version of the image.
 /// Ensures: The original img is not modified.
@@ -703,27 +707,8 @@ Image ImageRotate180CW(const Image img) {
   assert(img != NULL);
 
   // TO BE COMPLETED
-  /* ...
-    //Create a image with the same size
-  Image otherImg = ImageCreate(img->width, img->height);
 
-  //For each pixel at \((x,y)\), its new position will be \((width-1-x,height-1-y)\)
-
-  for (uint32 i = 0; i<img->height; i++){ //Loop through all rows
-    for(uint32 j=0; j<img->width; j++){ //Loop through all columns
-      //
-      uint16 index = img->image[i][j];
-      //Colors of the pixel at that position
-      rgb_t color = img->LUT[index];
-      //Get the rotated image coordinates 
-      uint16 otherIndex = otherImg->image[img->width-1-i][img->height-1-j];
-      //Define that pixel RGB colors the same as the original
-      otherImg->LUT[otherIndex] = color;
-
-    }
-  }
-
-  return (otherImg != NULL)? otherImg : NULL;*/
+  //Get width and height
   uint32 w = img->width;
   uint32 h = img->height;
 
@@ -778,8 +763,8 @@ int ImageRegionFillingRecursive(Image img, int u, int v, uint16 label) {
 
   //Base Case (Stop Recursion)
   //Is different color of the neighbours
-    if (img->image[v][u] != label){
-      return 1;
+    if (img->image[v][u] == label){
+      return 0;
     } 
 
     img->image[v][u] = label;//
@@ -905,11 +890,10 @@ int ImageSegmentation(Image img, FillingFunction fillFunct) {
         if (img->image[v][u] == 0) {  // WHITE region
             //Get a new coloe
             rgb_t newColor = GenerateNextColor(color);
-            color = newColor;
+            color = newColor;//Update Color
 
             //Append new color to the LUT
             uint16 newLabel = LUTAllocColor(img, newColor);
-
             fillFunct(img, u, v, newLabel);
             regions++;
         }
