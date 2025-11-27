@@ -82,7 +82,13 @@ int main(int argc, char* argv[]) {
     Image imgTemp2 = ImageCreatePalete(i*10,i*10,4);
     val = ImageIsEqual(imgTemp1,imgTemp2);
   }*/
- 
+  printf("10)Rotated\n");
+  Image rotated = ImageRotate90CW(image_1);
+  ImageSavePPM(rotated, "img/rotatedPPF.ppm");
+
+  //Intrumentation
+  InstrPrint();
+
 
   ImageDestroy(&white_image);
   ImageDestroy(&black_image);
@@ -94,6 +100,7 @@ int main(int argc, char* argv[]) {
   ImageDestroy(&image_1);
   ImageDestroy(&image_2);
   ImageDestroy(&image_3);
+  ImageDestroy(&rotated);
 
   return 0;
 }
